@@ -1,6 +1,23 @@
-:root {
-  --logo-font: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
 }
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+// SASS Root Variable
+$logo-font: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
 body {
   margin: 0;
@@ -29,7 +46,7 @@ body {
       color: #5d5b8d;
       font-size: 24px;
       font-weight: bold;
-      font-family: var(--logo-font);
+      font-family: $logo-font;
     }
 
     .title {
@@ -99,10 +116,14 @@ body {
     height: 80%;
     display: flex;
     overflow: hidden;
+    @include tablet {
+      width: 90%;
+    }
 
     .sidebar {
       flex: 1;
       background-color: #3e3c61;
+      position: relative;
 
       .navbar {
         display: flex;
@@ -115,7 +136,10 @@ body {
 
         .logo {
           font-weight: bold;
-          font-family: var(--logo-font);
+          font-family: $logo-font;
+          @include tablet {
+            display: none;
+          }
         }
 
         .user {
@@ -136,9 +160,14 @@ body {
             height: 20px;
             background-color: #5f5b8d;
             color: #ddddf7;
-            font-size: 10px;
+            font-size: 12px;
+            font-weight: 500;
             border: none;
             cursor: pointer;
+            @include tablet {
+              position: absolute;
+              bottom: 10px;
+            }
           }
         }
       }
@@ -216,6 +245,106 @@ body {
         img {
           height: 24px;
           cursor: pointer;
+        }
+      }
+
+      .messages {
+        padding: 10px;
+        background-color: #ddddf7;
+        height: calc(100% - 160px);
+        overflow: scroll;
+        scrollbar-width: none;
+
+        .message {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+
+          .messageInfo {
+            display: flex;
+            flex-direction: column;
+            color: gray;
+            font-weight: 300;
+
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+
+          .messageContent {
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            p {
+              background-color: white;
+              padding: 10px 20px;
+              border-radius: 0 10px 10px 10px;
+              max-width: max-content;
+            }
+
+            img {
+              width: 50%;
+            }
+          }
+
+          &.owner {
+            flex-direction: row-reverse;
+
+            .messageContent {
+              align-items: flex-end;
+
+              p {
+                background-color: #8da4f1;
+                color: white;
+                border-radius: 10px 0 10px 10px;
+              }
+            }
+          }
+        }
+      }
+
+      .input {
+        height: 50px;
+        background-color: white;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        input {
+          outline: none;
+          border: none;
+          width: 100%;
+          color: #2f2d52;
+          font-size: 18px;
+
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+
+        .send {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            height: 24px;
+            cursor: pointer;
+          }
+
+          button {
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            background-color: #8da4f1;
+            cursor: pointer;
+          }
         }
       }
     }
