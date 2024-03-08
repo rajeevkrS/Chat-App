@@ -137,9 +137,6 @@ body {
         .logo {
           font-weight: bold;
           font-family: $logo-font;
-          @include tablet {
-            display: none;
-          }
         }
 
         .user {
