@@ -88,8 +88,20 @@ body {
         font-style: 12px;
         cursor: pointer;
 
-        img {
-          width: 35px;
+        .avatarContainer {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          object-fit: cover;
+        }
+
+        .avatarContainer img {
+          width: 100%;
+          height: auto;
         }
       }
     }
