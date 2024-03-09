@@ -1,10 +1,10 @@
 import AddAvatar from "../images/addAvatar.png";
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export const Register = () => {
   const [error, setError] = useState(false);
@@ -43,7 +43,7 @@ export const Register = () => {
     } catch (error) {
       setError(true);
       console.log("Error uploading image");
-      return null;
+      // return null;
     }
   };
 
@@ -72,8 +72,17 @@ export const Register = () => {
       //Create user
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
+      // update currentUser on Authentication on Firebase
+      await updateProfile(auth.currentUser, {
+        displayName: displayName,
+        photoURL: downloadURL,
+      });
+
+      // console.log("00000000000" + auth.currentUser);
+
       // Firestore DB setup
 
+      //create users collection on firestore
       const userDocRef = doc(db, "users", email);
       await setDoc(userDocRef, {
         uid: res.user.uid,
@@ -82,7 +91,9 @@ export const Register = () => {
         photoURL: downloadURL,
       });
 
-      //create empty user chats on firestore
+      console.log("From Register.js: " + displayName);
+
+      //create empty userChats collection on firestore
       const chatDocRef = doc(db, "userChats", email);
       await setDoc(chatDocRef, {});
 
@@ -144,7 +155,9 @@ export const Register = () => {
           {error && <h3>Something went wrong!</h3>}
         </form>
 
-        <p>You do have an account? Login</p>
+        <p>
+          You do have an account? <Link to="/login">Login</Link>
+        </p>
       </div>
     </div>
   );

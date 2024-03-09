@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { Children, createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 
 export const AuthContext = createContext();
@@ -13,17 +13,25 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     // Passing a firebase Auth funtion for checking
     const unsub = onAuthStateChanged(auth, (user) => {
-      // If user
       setCurrentUser(user);
-      console.log(user);
+      // Only log `displayName` if the user exists
+      // if (user) {
+      //   console.log("From AuthContex.js :", user);
+      // } else {
+      //   console.log("No user is logged in");
+      // }
     });
 
+    // Cleanup subscription on unmount
     return () => {
       unsub();
     };
   }, []);
 
+  // For sending multiple objects like displayName, photoURL, email, etc. we need to use double curly brackets "{{}}".
   return (
-    <AuthContext.Provider value={currentUser}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ currentUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
