@@ -94,7 +94,7 @@ export const Register = () => {
       console.log("From Register.js: " + displayName);
 
       //create empty userChats collection on firestore
-      const chatDocRef = doc(db, "userChats", email);
+      const chatDocRef = doc(db, "userChats", res.user.uid);
       await setDoc(chatDocRef, {});
 
       // After all successfull operation, navigate to home page

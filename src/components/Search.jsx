@@ -68,7 +68,7 @@ const Search = () => {
         // Create user chats using nested updateDoc function of firebase:
 
         // currentUser updateDoc function
-        await updateDoc(doc(db, "userChats", currentUser.email), {
+        await updateDoc(doc(db, "userChats", currentUser.uid), {
           // variable + string together
           [combinedId + ".userInfo"]: {
             uid: user.uid,
@@ -80,7 +80,7 @@ const Search = () => {
         });
 
         // user updateDoc function
-        await updateDoc(doc(db, "userChats", user.email), {
+        await updateDoc(doc(db, "userChats", user.uid), {
           // variable + string together
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
