@@ -18,6 +18,11 @@
 
 // SASS Root Variable
 $logo-font: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+$button-width: 90px;
+$spinner-width: $button-width/4;
+$blue: #0076d3;
+$btn-bg: #8bc34a;
+$text-light: #fefefe;
 
 body {
   margin: 0;
@@ -224,13 +229,17 @@ body {
         }
 
         .userChatInfo {
+          width: 160px;
+
           span {
             font-size: 18px;
             font-weight: 500;
           }
 
           p {
+            word-wrap: break-word;
             margin: 0;
+            width: 50%;
             font-size: 14px;
             color: lightgray;
           }
@@ -246,20 +255,26 @@ body {
         background-color: #5d5b8d;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        // justify-content: space-between;
+        justify-content: center;
         padding: 10px;
         color: lightgray;
-      }
 
-      .chatIcons {
-        display: flex;
-        gap: 10px;
-
-        img {
-          height: 24px;
-          cursor: pointer;
+        span {
+          font-size: 25px;
+          font-weight: 600;
         }
       }
+
+      // .chatIcons {
+      //   display: flex;
+      //   gap: 10px;
+
+      //   img {
+      //     height: 24px;
+      //     cursor: pointer;
+      //   }
+      // }
 
       .messages {
         padding: 10px;
@@ -294,6 +309,8 @@ body {
             gap: 10px;
 
             p {
+              width: 50%;
+              word-wrap: break-word;
               background-color: white;
               padding: 10px 20px;
               border-radius: 0 10px 10px 10px;
@@ -329,10 +346,19 @@ body {
         align-items: center;
         justify-content: space-between;
 
+        .initialRender {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: $logo-font;
+          font-weight: 600;
+        }
+
         input {
           outline: none;
           border: none;
-          width: 100%;
+          width: 90%;
           color: #2f2d52;
           font-size: 18px;
 
@@ -346,17 +372,147 @@ body {
           align-items: center;
           gap: 10px;
 
+          .fileInputContainer {
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            object-fit: cover;
+          }
+
+          .fileInputContainer img {
+            width: 100%;
+            height: auto;
+          }
+
           img {
-            height: 24px;
+            height: 30px;
             cursor: pointer;
           }
 
-          button {
-            border: none;
-            padding: 10px 15px;
-            color: white;
-            background-color: #8da4f1;
+          // button {
+          //   border: none;
+          //   padding: 10px 15px;
+          //   color: white;
+          //   background-color: #8da4f1;
+          // border-radius: 4px;
+          //   cursor: pointer;
+          // }
+
+          .button {
+            display: inline-block;
+            min-width: $button-width;
+            margin: 10px auto;
+            background: #8da4f1;
+            color: $text-light;
+            font-size: 1.2em;
+            padding: 0.5em;
+            border-radius: 4px;
+            text-align: center;
+            position: relative;
             cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            border: 0;
+            transition: border-radius linear 0.01s, width linear 0.01s;
+
+            &:focus {
+              outline: 0;
+            }
+
+            &.animate {
+              width: $button-width/2;
+              height: $button-width/2;
+              min-width: 0;
+              border-radius: 50%;
+              color: transparent;
+
+              &:after {
+                position: absolute;
+                content: "";
+                width: $spinner-width;
+                height: $spinner-width;
+                border: 4px solid $text-light;
+                border-radius: 50%;
+                border-left-color: transparent;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                animation: spin ease-in 0.1s forwards;
+                animation-name: spin;
+                -webkit-animation-name: spin;
+                transition-timing-function: ease-in-out;
+                -webkit-transition-timing-function: ease-in-out;
+                animation-duration: 1s;
+                -webkit-animation-duration: 1s;
+                animation-fill-mode: forwards;
+                -webkit-animation-fill-mode: forwards;
+              }
+
+              &.success:before {
+                position: absolute;
+                content: "";
+                width: $spinner-width;
+                height: $spinner-width/2;
+                border: 4px solid $text-light;
+                border-right: 0;
+                border-top: 0;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0);
+                transform: translate(-50%, -50%) rotate(0deg) scale(0);
+                -webkit-animation: success ease-in 0.1s forwards;
+                animation: success ease-in 0.1s forwards;
+                animation-delay: 1s;
+              }
+            }
+          }
+
+          @keyframes spin {
+            0% {
+              transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+            90% {
+              transform: translate(-50%, -50%) rotate(1080deg) scale(1);
+            }
+            100% {
+              transform: scale(0);
+            }
+          }
+
+          @-webkit-keyframes spin {
+            0% {
+              -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+
+            98% {
+              -webkit-transform: translate(-50%, -50%) rotate(1080deg) scale(1);
+            }
+
+            100% {
+              -webkit-transform: translate(-50%, -50%) rotate(1080deg) scale(0);
+            }
+          }
+
+          @keyframes success {
+            from {
+              transform: translate(-50%, -50%) rotate(0) scale(0);
+            }
+            to {
+              transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+            }
+          }
+
+          @-webkit-keyframes success {
+            from {
+              -webkit-transform: translate(-50%, -50%) rotate(0) scale(0);
+            }
+            to {
+              -webkit-transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+            }
           }
         }
       }

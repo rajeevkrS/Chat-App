@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Img from "../images/img.png";
-import Attach from "../images/attach.png";
+// import Attach from "../images/attach.png";
 import { AuthContext } from "../context API/AuthContext";
 import { ChatContext } from "../context API/ChatContext";
 import {
@@ -8,7 +8,6 @@ import {
   arrayUnion,
   doc,
   serverTimestamp,
-  setDoc,
   updateDoc,
 } from "firebase/firestore";
 import { db, storage } from "../firebase";
@@ -19,10 +18,12 @@ const Input = () => {
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
   const [error, setError] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
   let downloadURL;
+  let uploadimageurl;
 
   // Upload image function
   const handleImageUpload = async () => {
@@ -41,7 +42,11 @@ const Input = () => {
   };
 
   const handleSend = async () => {
-    let uploadimageurl;
+    // Button animation
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 4000);
 
     // Check if their is any img or not, if not only text wil be sent
     if (img) {
@@ -82,11 +87,21 @@ const Input = () => {
 
     setText("");
     setImg(null);
-
-    return;
   };
 
-  return (
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+
+    // Check if the selected file is an image
+    if (selectedFile && selectedFile.type.startsWith("image/")) {
+      setImg(selectedFile);
+    } else {
+      alert("Please select an image file.");
+    }
+  };
+
+  // Conditionally render input fields and button based on whether user is selected for chat
+  return data.user.uid ? (
     <div className="input">
       <input
         type="text"
@@ -95,20 +110,35 @@ const Input = () => {
         value={text}
       />
       <div className="send">
-        <img src={Attach} alt="" />
-
         <input
           type="file"
           style={{ display: "none" }}
           id="file"
-          onChange={(e) => setImg(e.target.files[0])}
+          onChange={handleFileChange}
         />
-        <label htmlFor="file">
-          <img src={Img} alt="" />
+        <label htmlFor="file" className="fileInputLabel">
+          <div className="fileInputContainer">
+            {img ? (
+              <img src={URL.createObjectURL(img)} alt="Selected avatar" />
+            ) : (
+              <img src={Img} alt="" />
+            )}
+          </div>
         </label>
-
-        <button onClick={handleSend}>Send</button>
+        <button
+          className={`button success ${isAnimating ? "animate" : ""}`}
+          disabled={isAnimating}
+          onClick={handleSend}
+        >
+          Send
+        </button>
       </div>
+    </div>
+  ) : (
+    <div className="input">
+      <p className="initialRender">
+        Please select your friend to start the chat.
+      </p>
     </div>
   );
 };

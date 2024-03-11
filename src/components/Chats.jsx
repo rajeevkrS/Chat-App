@@ -40,23 +40,25 @@ const Chats = () => {
       {/* Chats here is in object fromat "{}" which is getting from onSnapshot method, but for mapping over "chats" we need to conert it into array so to convert I used a method Object.entries() method which converts it into array "[]". 
       ---"?" specifies if their is any chats or not
       */}
-      {Object.entries(chats)?.map((chat) => {
-        // console.log(chat[1]?.lastMessage?.text);
-        // console.log(chat);
-        return (
-          <div
-            className="userChat"
-            key={chat[0]}
-            onClick={() => handleSelect(chat[1].userInfo)}
-          >
-            <img src={chat[1].userInfo?.photoURL} alt="" />
-            <div className="userChatInfo">
-              <span>{chat[1].userInfo?.displayName}</span>
-              <p>{chat[1].lastMessage?.text}</p>
+      {Object.entries(chats)
+        ?.sort((a, b) => b[1].date - a[1].date)
+        .map((chat) => {
+          // console.log(chat[1]?.lastMessage?.text);
+          // console.log(chat);
+          return (
+            <div
+              className="userChat"
+              key={chat[0]}
+              onClick={() => handleSelect(chat[1].userInfo)}
+            >
+              <img src={chat[1].userInfo?.photoURL} alt="" />
+              <div className="userChatInfo">
+                <span>{chat[1].userInfo?.displayName}</span>
+                <p>{chat[1].lastMessage?.text}</p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };
