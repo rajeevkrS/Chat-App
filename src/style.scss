@@ -113,6 +113,14 @@ body {
           height: auto;
         }
       }
+
+      .demoContainer {
+        text-align: center;
+      }
+
+      .demoContainer p {
+        font-family: $logo-font;
+      }
     }
 
     p {
@@ -336,6 +344,31 @@ body {
             }
           }
         }
+
+        .welcome-message {
+          margin-top: 30px;
+          text-align: center;
+
+          img {
+            height: 150px;
+          }
+
+          .lock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              margin-right: 5px;
+              height: 20px;
+            }
+
+            span {
+              font-size: 18px;
+              font-weight: bold;
+            }
+          }
+        }
       }
 
       .input {
@@ -397,8 +430,9 @@ body {
           //   padding: 10px 15px;
           //   color: white;
           //   background-color: #8da4f1;
-          // border-radius: 4px;
+          //   border-radius: 4px;
           //   cursor: pointer;
+          //   font-size: 1.2em;
           // }
 
           .button {
@@ -408,7 +442,8 @@ body {
             background: #8da4f1;
             color: $text-light;
             font-size: 1.2em;
-            padding: 0.5em;
+            // padding: 0.5em;
+            padding: 10px 15px;
             border-radius: 4px;
             text-align: center;
             position: relative;

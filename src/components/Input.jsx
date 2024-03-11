@@ -42,11 +42,16 @@ const Input = () => {
   };
 
   const handleSend = async () => {
+    // Check if text is empty
+    if (text.trim() === "" && !img) {
+      return;
+    }
+
     // Button animation
     setIsAnimating(true);
     setTimeout(() => {
       setIsAnimating(false);
-    }, 4000);
+    }, 100);
 
     // Check if their is any img or not, if not only text wil be sent
     if (img) {

@@ -15,6 +15,7 @@ export const Register = () => {
   const [password, setPass] = useState("");
   const [image, setImage] = useState(null);
   const [avatarURL, setAvatarURL] = useState(null);
+  const [loading, setLoading] = useState(false);
   let downloadURL;
 
   const handleImageChange = async (e) => {
@@ -48,6 +49,7 @@ export const Register = () => {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     // Make sure displayName is populated before proceeding
@@ -101,6 +103,7 @@ export const Register = () => {
       navigate("/");
     } catch (error) {
       setError(true);
+      setLoading(false);
       console.log("uploading failed");
     }
   };
@@ -152,6 +155,8 @@ export const Register = () => {
 
           <button>Sign Up</button>
 
+          {loading && "Uploading and compressing the image please wait..."}
+
           {error && <h3>Something went wrong!</h3>}
         </form>
 
@@ -165,7 +170,6 @@ export const Register = () => {
 
 export default Register;
 
-//Handle Submit Authentication
 // const handleSubmit = async (e) => {
 //   e.preventDefault();
 //   const displayName = e.target[0].value;

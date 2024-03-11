@@ -44,6 +44,15 @@ const Login = () => {
 
           <button>Sign In</button>
 
+          <div className="demoContainer">
+            <p>
+              <u>Email:</u> demo@gmail.com
+            </p>
+            <p>
+              <u>Password:</u> 123456
+            </p>
+          </div>
+
           {error && <h3>Something went wrong!</h3>}
         </form>
 
