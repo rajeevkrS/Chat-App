@@ -94,9 +94,7 @@ const Search = () => {
       // console.log("1st:" + user.email);
       // console.log("2nd:" + currentUser.email);
       // console.log("From Search.js: " + res);
-    } catch (err) {
-      setErr(true);
-    }
+    } catch (err) {}
 
     setUser(null);
     setUsername("");

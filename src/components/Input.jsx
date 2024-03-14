@@ -18,7 +18,6 @@ const Input = () => {
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
   const [error, setError] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
@@ -46,12 +45,6 @@ const Input = () => {
     if (text.trim() === "" && !img) {
       return;
     }
-
-    // Button animation
-    setIsAnimating(true);
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 100);
 
     // Check if their is any img or not, if not only text wil be sent
     if (img) {
@@ -130,13 +123,7 @@ const Input = () => {
             )}
           </div>
         </label>
-        <button
-          className={`button success ${isAnimating ? "animate" : ""}`}
-          disabled={isAnimating}
-          onClick={handleSend}
-        >
-          Send
-        </button>
+        <button onClick={handleSend}>Send</button>
       </div>
     </div>
   ) : (

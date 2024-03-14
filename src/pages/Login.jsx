@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Chit Chat</span>
+        <span className="logo">Chit-Chat-App</span>
         <span className="title">Login</span>
 
         <form onSubmit={handleSubmit}>
