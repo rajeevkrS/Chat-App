@@ -46,7 +46,7 @@ const Login = () => {
 
           <div className="demoContainer">
             <p>
-              <u>Email:</u> demo@gmail.com
+              <u>Email:</u> test@gmail.com
             </p>
             <p>
               <u>Password:</u> 123456

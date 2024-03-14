@@ -10,7 +10,7 @@ import { getStorage } from "firebase/storage";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAfnpWMAvmlzzEhqKqYABFfkIW6j_4S_7Q",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "chit-chat-app-1bc34.firebaseapp.com",
   projectId: "chit-chat-app-1bc34",
   storageBucket: "chit-chat-app-1bc34.appspot.com",
