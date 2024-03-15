@@ -10,7 +10,7 @@
 
 ## 🚀 Demo
 
-This application is deployed on Netlify. Please check it out [here](https://bitchat.rohittewari.live).
+This application is deployed on Netlify. Please check it out [here](https://chit-chat-city.netlify.app).
 
 ![chit-chat](https://github.com/rajeevkrS/Chit-Chat-City/assets/124420037/2f024df9-1be2-4631-b6e7-f8a4215ffcc3)
 
@@ -91,6 +91,7 @@ npm start
 If you want to contact me, you can reach me through below handles.
 
 <a href="https://www.linkedin.com/in/rajeev-kumar-sudhansu/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+
 <a href="mailto:rajeevkumarr1221@gmail.com"><img  alt="Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 
 ## Contribution:
