@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- Title: -->
+  <a href="" target="">
+    <img src="https://github.com/rajeevkrS/Chit-Chat-City/assets/124420037/06e0b6a3-0436-44fd-953b-5383c7c099f1" height="150" alt="Logo with shadow">
+  </a>
 
-## Available Scripts
+<!-- Short description: -->
+<h2>Real-time chat application using React Js & Firebase DB.</h2>
 
-In the project directory, you can run:
+## 🚀 Demo
 
-### `npm start`
+This application is deployed on Netlify. Please check it out [here](https://bitchat.rohittewari.live).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![chit-chat](https://github.com/rajeevkrS/Chit-Chat-City/assets/124420037/2f024df9-1be2-4631-b6e7-f8a4215ffcc3)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🖥️ Tech Stack
 
-### `npm test`
+**Fontend:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)&nbsp;
+![SASS](https://img.shields.io/badge/SASS-CC6699?style=for-the-badge&logo=sass&logoColor=white)&nbsp;
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)&nbsp;
+![React](https://img.shields.io/badge/react_js-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)&nbsp;
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)&nbsp;
 
-### `npm run build`
+**Database:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Firebase](https://img.shields.io/badge/Firebase-4EA94B?style=for-the-badge&logo=firebase&logoColor=white)&nbsp;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Deployed On:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=Netlify&logoColor=black)
 
-### `npm run eject`
+## ⚡️ Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Real time communication is supported.
+- Send Images and text.
+- Fully Responsive UI
+- User authentication using email with Login as well as Logout feature.
+- Passwords are encrypted.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📖 Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In order to run the project you need `npm>=8.0v` installed on your machine.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚩 Getting Started
 
-## Learn More
+### 1. Clone the `Chit-Chat-City` repository:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/rajeevkrS/Chit-Chat-City
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 2. Navigate into repo:
 
-### Code Splitting
+```bash
+cd chit-chat-city
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Rename `.env.example` into `.env` and put all creadentials:
 
-### Analyzing the Bundle Size
+```bash
+REACT_APP_FIREBASE_KEY="YOUR_FIREBASE_API_KEY"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 4. Install package dependencies:
 
-### Making a Progressive Web App
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 4. Run project:
 
-### Advanced Configuration
+In the `root` directory, open terminal session and run command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm start
+```
 
-### Deployment
+### 5. Open your browser and go to `http://localhost:"Your Port No."`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 👤 Developer
 
-### `npm run build` fails to minify
+[RAJEEV KUMAR SUDHANSU](https://github.com/rajeevkrS)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📬 Contact
+
+If you want to contact me, you can reach me through below handles.
+
+<a href="https://www.linkedin.com/in/rajeev-kumar-sudhansu/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+<a href="mailto:rajeevkumarr1221@gmail.com"><img  alt="Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+
+## Contribution:
+
+Feel free to contribute to the project by opening issues or creating pull requests. Your feedback and suggestions are highly appreciated.
+
+### Show your support by Star 🌟 this repo!
