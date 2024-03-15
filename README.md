@@ -14,6 +14,8 @@ This application is deployed on Netlify. Please check it out [here](https://bitc
 
 ![chit-chat](https://github.com/rajeevkrS/Chit-Chat-City/assets/124420037/2f024df9-1be2-4631-b6e7-f8a4215ffcc3)
 
+</div>
+
 ## 🖥️ Tech Stack
 
 **Fontend:**
